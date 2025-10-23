@@ -1,0 +1,53 @@
+Vad är pull respektive push?
+
+Pull hämtar ändringar från GitHub (remote) och uppdaterar den lokala branchen.
+Push skickar de committade ändringarna från den lokala branchen upp till GitHub.
+
+Exempel:
+
+git pull
+git push
+
+När använder man log respektive status?
+git log visar commit-historiken för branchen man står på.
+git log --oneline
+
+Exempeloutput:
+
+a1b2c3d Fix bug in Guesser
+e4f5g6d Add main class GuessingGame
+
+git status visar vilka filer som ändrats, vilka som är staged, och vilka som inte är med i commit än.
+git status
+
+Exempeloutput:
+On branch main
+Changes not staged for commit:
+  modified: Guesser.java
+
+Vad är en Git branch och varför är de viktiga?
+En branch är som en parallell version av koden.
+Man använder brancher för att utveckla nya funktioner eller testa saker utan att störa master.
+
+Exempel:
+git checkout -b feature1
+git commit -am "Add new feature"
+git checkout main
+
+Skillnader i att rulla tillbaka kod
+
+Det finns olika sätt att backa ändringar:
+git checkout <commit> går tillbaka till ett specifikt commit-läge lokalt. Filerna ändras men historiken påverkas inte.
+git revert <commit> skapar en ny commit som tar bort ändringarna från en tidigare commit utan att förstöra historiken.
+
+Exempel med branch:
+git checkout -b testbranch
+echo "Hej" > test.txt
+git add test.txt
+git commit -m "Add test.txt"
+git log --oneline
+git revert 1a2b3c4
+git log --oneline
+
+Master påverkas inte eftersom allt gjordes i testbranch. 
+
