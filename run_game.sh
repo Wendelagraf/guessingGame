@@ -11,7 +11,7 @@ cd "$DIR" || exit 1
 echo "Running game from $(pwd)"
 
 echo "compiling..."
-javac *.java
+javac GuessingGame.java
 
 echo "running..."
 java GuessingGame
